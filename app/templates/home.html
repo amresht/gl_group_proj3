@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            display: block;
+            width: 30%;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 16px;
+            background-color: #227a77;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: underline;
+            
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <p>Please login/signup to check loan eligibility.</p> -->
+        <h1>Please login/signup to check loan eligibility.</h1>
+        <button class="btn login" onclick="location.href='/login'">Login Now</button>
+        <button class="btn register" onclick="location.href='/register'">Register Now</button>
+    </div>
+</body>
+</html>

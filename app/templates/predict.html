@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container h3 {
+            font-weight: normal; /* Remove bold formatting for h3 elements inside the container */
+        }
+        .btn {
+            display: block;
+            width: 20%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #227a77;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: underline;
+            
+        }
+        .btnlogout {
+            width: 40%;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 16px;
+            background-color: #227a77;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>House Loan Eligibility Prediction</h1>
+        <p><b>Please enter the details in order to check your house loan eligibility</b></p>
+        <form method="POST" action="/predict">
+            <h3>
+                Gender:
+                <select name="gender" id="gender" required="required">
+                    <option value="1">male</option>
+                    <option value="0">female</option>
+                </select>
+            </h3>
+            <h3>
+                married:
+                <select name="married" id="married" required="required">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </select>
+            </h3>
+            <h3>
+                <label for="dependents">dependents:</label>
+                <input type="text" id="dependents" name="dependents" required>
+            </h3>
+            <h3>
+                education:
+                <select name="education" id="education" required="required">
+                    <option value="1">graduate</option>
+                    <option value="0">Non graduate</option>
+                </select>
+            </h3>
+            <h3>
+                self employed:
+                <select name="self_employed" id="self_employed" required="required">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </select>
+            </h3>
+            <h3>
+                <label for="applicant_income">Applicant Income ($):</label>
+                <input type="number" id="applicant_income" name="applicant_income" required>
+            </h3>
+            <h3>
+                <label for="coapplicant_income">Co-Applicant Income ($):</label>
+                <input type="number" id="coapplicant_income" name="coapplicant_income" required>
+            </h3>
+            <h3>
+                <label for="loan_amount">Loan Amount in thousands ($):</label>
+                <input type="number" id="loan_amount" name="loan_amount" required>
+            </h3>
+            <h3>
+                <label for="loan_amount_term">Loan Amount Term (in months):</label>
+                <input type="number" id="loan_amount_term" name="loan_amount_term" required>
+            </h3>
+            <h3>
+                Credit History:
+                <select name="credit_history" id="credit_history" required="required">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </select>
+            </h3>
+            <h3>
+                Property Area:
+                <select name="property_area" id="property_area" required="required">
+                    <option value="2">urban</option>
+                    <option value="1">semiurban</option>
+                    <option value="0">rural</option>
+                </select>
+            </h3>
+            <input class="btn" type="submit" value="Submit">
+        </form>
+        <h2 class="result">{{ prediction }}</h2><br>
+        <button class="btnlogout" onclick="location.href='/logout?token={{ token }}'"><strong>Press here to Logout</strong></button>
+    </div>
+</body>
+</html>
